@@ -33,6 +33,7 @@
 Identifying parallel passages in biblical Hebrew is foundational in biblical scholarship for uncovering intertextual relationships. Traditional methods rely on manual comparison, which is labor-intensive and prone to human error, particularly with the linguistic complexity of a morphologically rich language like biblical Hebrew. This study evaluates the potential of pre-trained transformer-based language models, including E5, AlephBERT, MPNet, and LaBSE, for detecting textual parallels in the Hebrew Bible. Focusing on known parallels between the books of Samuel/Kings and Chronicles, I assessed each model’s capability to generate word embeddings that delineate parallel from non-parallel passages. Utilizing cosine similarity and Wasserstein Distance metrics, I found that E5 and AlephBERT show significant promise, with E5 excelling in parallel detection and AlephBERT demonstrating stronger non-parallel differentiation. These findings indicate that pre-trained models can enhance the efficiency and accuracy of detecting intertextual parallels in ancient texts, suggesting broader applications for ancient language studies. \end{abstract}
 
 \section{Introduction}
+\footnote{All code and data can be found in the following Github repository: \url{https://github.com/dmsmiley/detect-bh}}
 The identification of parallel passages in biblical Hebrew (BH) texts has long been a cornerstone of biblical scholarship, serving as a critical tool for understanding intertextual relationships and theological development (Fewell, 1992). Scholars have traditionally relied on manual comparisons to trace these connections (Harvey, 2004; Miller, 2011; Schnittjer, 2021). These parallels are not merely textual repetitions but often involve reinterpretations and recontextualizations that provide profound insights into the evolution of biblical narratives (Fishbane, 1985; Kalimi, 2004).
 
 Traditional methods for detecting these parallels, however, are labor-intensive and susceptible to human error, particularly when the connections are implicit, nuanced, or even subtle. The linguistic complexity of BH, with its rich morphology and intricate verbal structures, exacerbate these challenges (Singh et al., 2012). These difficulties are further magnified when scholars manually attempt to analyze texts spanning extensive chronological, thematic, and theological corpora, which push the limits of one’s attention and lead to an inconsistency in intertextual findings.
@@ -232,7 +233,7 @@ Expanding this research to other ancient languages, such as Syriac, Greek, or La
 \appendix
 \section*{Appendix}
 
-Each graph contains the distribution of cosine similarity scores for all known parallels (in blue) alongside the mean non-parallel cosine similarity scores (in red) according to the embeddings created by the different models. The Wasserstein Distance measures the degree of their overlap with a higher scoring measuring a more significant gap in their distributions.
+Each graph contains the distribution of cosine similarity scores for all known parallels (in blue) alongside the mean non-parallel cosine similarity scores (in red) according to the embeddings created by the different models.
 
 \begin{figure}[htbp]
 \centering
