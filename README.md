@@ -13,26 +13,6 @@ This repository contains code and data for evaluating pre-trained transformer mo
 - **Comprehensive metrics**: Employs cosine similarity, Wasserstein Distance, and classification metrics
 - **Known parallels dataset**: 559 verified parallel verses between Chronicles and Samuel/Kings
 
-## Repository Structure
-└── dmsmiley-detect-bh/
-    ├── README.md
-    ├── Computational_Detection.ipynb
-    ├── data/
-    │   ├── Chronicles Parallels.xlsx
-    │   ├── hebrew_verses.xlsx
-    │   ├── .DS_Store
-    │   └── Embeddings/
-    │       ├── Chr_Kgs_Sam_alephbert.parquet
-    │       ├── Chr_Kgs_Sam_e5_large.parquet
-    │       ├── Chr_Kgs_Sam_labse.parquet
-    │       ├── Chr_Kgs_Sam_mpnet.parquet
-    │       └── .DS_Store
-    └── latex_files/
-        ├── FINAL_Tracing_Deeper_Parallels.aux
-        ├── FINAL_Tracing_Deeper_Parallels.tex
-        └── .DS_Store
-
-
 ## Results Summary
 
 | Model | Mean Cosine (Parallel) | Mean Cosine (Non-Parallel) | F1-Score | Wasserstein Distance |
