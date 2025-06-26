@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.26)  25 JUN 2025 12:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.26)  26 JUN 2025 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -578,36 +578,36 @@ Overfull \hbox (8.06137pt too wide) in paragraph at lines 168--168
  []
 
 [6] [7] [8] [9]
-<nonpar_par_histogram_E5Large.png, id=117, 611.886pt x 393.6306pt>
+<nonpar_par_histogram_E5Large.png, id=121, 611.886pt x 393.6306pt>
 File: nonpar_par_histogram_E5Large.png Graphic file (type png)
 <use nonpar_par_histogram_E5Large.png>
 Package pdftex.def Info: nonpar_par_histogram_E5Large.png  used on input line 2
-44.
+52.
 (pdftex.def)             Requested size: 211.38832pt x 135.98889pt.
-<nonpar_par_histogram_AlephBERT.png, id=119, 607.7907pt x 393.6306pt>
+<nonpar_par_histogram_AlephBERT.png, id=123, 607.7907pt x 393.6306pt>
 File: nonpar_par_histogram_AlephBERT.png Graphic file (type png)
 <use nonpar_par_histogram_AlephBERT.png>
 Package pdftex.def Info: nonpar_par_histogram_AlephBERT.png  used on input line
- 251.
+ 259.
 (pdftex.def)             Requested size: 211.38832pt x 136.90186pt.
-<nonpar_par_histogram_LaBSE.png, id=120, 607.7907pt x 393.6306pt>
+<nonpar_par_histogram_LaBSE.png, id=124, 607.7907pt x 393.6306pt>
 File: nonpar_par_histogram_LaBSE.png Graphic file (type png)
 <use nonpar_par_histogram_LaBSE.png>
-Package pdftex.def Info: nonpar_par_histogram_LaBSE.png  used on input line 261
+Package pdftex.def Info: nonpar_par_histogram_LaBSE.png  used on input line 269
 .
 (pdftex.def)             Requested size: 211.38832pt x 136.90186pt.
-<nonpar_par_histogram_MPNet.png, id=121, 607.7907pt x 393.6306pt>
+<nonpar_par_histogram_MPNet.png, id=125, 607.7907pt x 393.6306pt>
 File: nonpar_par_histogram_MPNet.png Graphic file (type png)
 <use nonpar_par_histogram_MPNet.png>
-Package pdftex.def Info: nonpar_par_histogram_MPNet.png  used on input line 268
+Package pdftex.def Info: nonpar_par_histogram_MPNet.png  used on input line 276
 .
 (pdftex.def)             Requested size: 211.38832pt x 136.90186pt.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-78.
+86.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (14.85442pt too wide) in paragraph at lines 281--282
+Overfull \hbox (14.85442pt too wide) in paragraph at lines 289--290
 []\T1/lmr/m/n/12 Fewell, D. (1992). \T1/lmr/m/it/12 Read-ing be-tween Texts: In
 -ter-tex-tu-al-ity and the He-brew Bible\T1/lmr/m/n/12 . Louisville:
  []
@@ -622,19 +622,15 @@ istogram_LaBSE.png> <./nonpar_par_histogram_MPNet.png>] [11] [12]
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `FINAL_Tracing_Deeper_Parallels.out' has not 
 changed.
-(rerunfilecheck)             Checksum: 0DE5C476698D9006041065115244D70A;2609.
+(rerunfilecheck)             Checksum: 21DC5FE43B6F1E3BC96211754D49A02E;2708.
  ) 
 Here is how much of TeX's memory you used:
- 11879 strings out of 474116
- 190273 string characters out of 5743682
+ 11881 strings out of 474116
+ 190293 string characters out of 5743682
  1941187 words of memory out of 5000000
- 34029 multiletter control sequences out of 15000+600000
+ 34030 multiletter control sequences out of 15000+600000
  636063 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,1348b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -652,10 +648,10 @@ texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2024/texmf-dist
 e1/public/lm/lmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/l
 m/lmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt12.p
 fb>
-Output written on FINAL_Tracing_Deeper_Parallels.pdf (12 pages, 818802 bytes).
+Output written on FINAL_Tracing_Deeper_Parallels.pdf (12 pages, 820900 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 192 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 253 PDF objects out of 1000 (max. 8388607)
+ 196 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
