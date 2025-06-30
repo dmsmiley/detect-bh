@@ -11,7 +11,7 @@ This repository contains code and data for evaluating pre-trained transformer mo
 - **Embeddings-based approach**: Uses verse-level embeddings to capture semantic relationships beyond surface-level matching
 - **Multiple model evaluation**: Compares performance across 4 state-of-the-art transformer models
 - **Comprehensive metrics**: Employs cosine similarity, Wasserstein Distance, and classification metrics
-- **Known parallels dataset**: 559 verified parallel verses between Chronicles and Samuel/Kings
+- **Known parallels dataset**: 558 verified parallel verses between Chronicles and Samuel/Kings
 
 ## Results Summary
 
