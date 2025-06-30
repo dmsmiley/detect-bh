@@ -30,7 +30,7 @@
 \maketitle
 
 \begin{abstract}
-Identifying parallel passages in biblical Hebrew is foundational in biblical scholarship for uncovering intertextual relationships. Traditional methods rely on manual comparison, which is labor-intensive and prone to human error, particularly with the linguistic complexity of a morphologically rich language like biblical Hebrew. This study evaluates the potential of pre-trained transformer-based language models, including E5, AlephBERT, MPNet, and LaBSE, for detecting textual parallels in the Hebrew Bible. Focusing on known parallels between the books of Samuel/Kings and Chronicles, I assessed each model’s capability to generate word embeddings that delineate parallel from non-parallel passages. Utilizing cosine similarity and Wasserstein Distance measures, I found that E5 and AlephBERT show significant promise, with E5 excelling in parallel detection and AlephBERT demonstrating stronger non-parallel differentiation. These findings indicate that pre-trained models can enhance the efficiency and accuracy of detecting intertextual parallels in ancient texts, suggesting broader applications for ancient language studies. \end{abstract}
+Identifying parallel passages in biblical Hebrew is foundational in biblical scholarship for uncovering intertextual relationships. Traditional methods rely on manual comparison, which is labor-intensive and prone to human error. This study evaluates the potential of pre-trained transformer-based language models, including E5, AlephBERT, MPNet, and LaBSE, for detecting textual parallels in the Hebrew Bible. Focusing on known parallels between the books of Samuel/Kings and Chronicles, I assessed each model’s capability to generate word embeddings that delineate parallel from non-parallel passages. Utilizing cosine similarity and Wasserstein Distance measures, I found that E5 and AlephBERT show significant promise, with E5 excelling in parallel detection and AlephBERT demonstrating stronger non-parallel differentiation. These findings indicate that pre-trained models can enhance the efficiency and accuracy of detecting intertextual parallels in ancient texts, suggesting broader applications for ancient language studies. \end{abstract}
 
 \section{Introduction}
 \footnote{All code and data can be found in the following Github repository: \url{https://github.com/dmsmiley/detect-bh}}
@@ -109,10 +109,10 @@ By comparing how well these models create word embeddings that can distinguish t
 
 \section{Data and Models}
 \subsection{Dataset}
-The Hebrew text for this study is drawn from the Biblia Hebraica Stuttgartensia Amstelodamensis (BHSA) corpus, as compiled by the Eep Talstra Centre for Bible and Computer at Vrije Universiteit Amsterdam (Peursen et al., 2015). Additionally, there are 559 verses from Chr with recognized, known parallels in Sam/Kgs (Endres et al., 1998), ensuring a consistent and empirical set of passages for evaluating transformer-based models’ performance.
+The Hebrew text for this study is drawn from the Biblia Hebraica Stuttgartensia Amstelodamensis (BHSA) corpus, as compiled by the Eep Talstra Centre for Bible and Computer at Vrije Universiteit Amsterdam (Peursen et al., 2015). Additionally, there are 558 verses from Chr with recognized, known parallels in Sam/Kgs (Endres et al., 1998), ensuring a consistent and empirical set of passages for evaluating transformer-based models’ performance.
 
 \subsection{Pre-Trained Models}
-Five pre-trained transformer models were used, each selected for their strengths in text classification and documentary similarity. Some are optimized for their scale and multilingual capabilities like Multilingual E5 (Wang et al., 2024). Another has its strength in representing larger sentences and paragraphs such as MPNet (Song et al., 2020).  LaBSE is a language agnostic approach to embeddings (Feng et al., 2022). In contrast the final model, AlephBERT, is specifically pre-trained on MH (Seker et al., 2021). By selecting robust, diverse models I am able to observe which approaches generalize embeddings best for the task of text similarity in BH.
+Four pre-trained transformer models were used, each selected for their strengths in text classification and documentary similarity. Some are optimized for their scale and multilingual capabilities like Multilingual E5 (Wang et al., 2024). Another has its strength in representing larger sentences and paragraphs such as MPNet (Song et al., 2020).  LaBSE is a language agnostic approach to embeddings (Feng et al., 2022). In contrast the final model, AlephBERT, is specifically pre-trained on MH (Seker et al., 2021). By selecting robust, diverse models I am able to observe which approaches generalize embeddings best for the task of text similarity in BH.
 
 \section{Model Evaluation}
 \subsection{Cosine Similarity}
@@ -166,7 +166,7 @@ MPNet and LaBSE exhibit the weakest performance with lower mean cosine similarit
 A t-test confirms that the observed differences between mean parallel and non-parallel cosine similarities are significant across all models, with p-values below 1e-100. For instance, E5’s p-value of 1.06e-284 indicates a highly significant distinction between the mean cosine score for parallel and non-parallel texts. So the models are at least able to consistently achieve similarity scores that distinguish parallel and non-parallel passages, despite not being optimized on BH.
 
 \subsection{Distribution-Based Testing for Parallel and Non-Parallel Verses}
-To further assess model performance a distribution-based metric called the Wasserstein Distance was employed, which measures the separation between the cosine similarity distributions for parallel and non-parallel passages. A higher Wasserstein Distance indicates greater separation and a stronger proclivity to distinguish between parallel and non-parallel verses (Leo et al. 2023). 
+To further assess model performance a distribution-based metric called the Wasserstein Distance was employed, which measures the separation between the cosine similarity distributions for parallel and non-parallel passages. A higher Wasserstein Distance indicates greater separation and a stronger proclivity to distinguish between parallel and non-parallel verses (Leo et al., 2023). 
 \begin{table}[htbp]
 \centering
 \label{tab:wasserstein}
@@ -208,9 +208,9 @@ LaBSE      & 0.72 & 0.86 & 0.78 \\
 \caption{Classification report of the closest parallel passage according to cosine similarity.}
 \end{table}
 
-E5 achieved a micro average precision of 0.92 and a recall of 0.85, indicating that while the majority of detected parallels were correct, around 15\% of true parallels were incorrectly categorized as the closest parallel text based on cosine similarity. Additionally, E5 only has a false positive rate of 8\%. This balance resulted in a strong F1-score of 0.88, demonstrating effective performance overall.
+E5 achieved a micro average precision of 0.92 and a recall of 0.85, indicating that while the majority of detected parallels were correct, around 15\% of true parallels were not identified as the closest parallel text based on cosine similarity. This resulted in a strong F1-score of 0.88, demonstrating effective performance overall.
 
-AlephBERT demonstrated similar performance, with a micro average precision of 0.92 and a recall of 0.82, resulting in an F1-score of 0.87. The metrics for AlephBERT are close to those of E5, suggesting that both models perform similarly in identifying true parallels and avoiding false positives.
+AlephBERT demonstrated similar performance, with a micro average precision of 0.92 and a recall of 0.82, resulting in an F1-score of 0.87. The metrics for AlephBERT are close to those of E5, suggesting that both models perform similarly in identifying true parallels and avoiding false positives for the closest parallel detected.
 
 MPNet and LaBSE showed lower effectiveness overall. They performed well with F1-scores of 0.78, but still fell short of the performance levels seen with E5 and AlephBERT.
 
@@ -242,7 +242,7 @@ Finally, this study evaluates existing pre-trained models rather than developing
 \appendix
 \section*{Appendix}
 
-Each graph contains the distribution of cosine similarity scores for all known parallels (in blue) alongside the mean non-parallel cosine similarity scores (in red) according to the embeddings created by the different models.
+Each graph contains the distribution of cosine similarity scores for all known parallels (in blue) alongside the distribution of non-parallel cosine similarity scores (in red) according to the embeddings created by the different models.
 
 \begin{figure}[htbp]
 \centering
@@ -286,7 +286,7 @@ Each graph contains the distribution of cosine similarity scores for all known p
 \begin{itemize}
     \item Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K. (2019) “BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding”, \textit{Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies}, pp. 4171–4186. \url{https://doi.org/10.18653/v1/N19-1423}
     \item Enders, J., Millar, W., \& Burns, J. (1998). \textit{Chronicles and Its Synoptic Parallels in Samuel, Kings, and Related Biblical Texts}. The Liturgical Press.
-    \item Feng, F., Yang, Y., Cer, D., et al. (2022). Language-agnostic BERT Sentence Embedding. \url{https://doi.org/10.48550/arXiv.2007.01852}
+    \item Feng, F., Yang, Y., Cer, D., et al., (2022). Language-agnostic BERT Sentence Embedding. \url{https://doi.org/10.48550/arXiv.2007.01852}
     \item Fewell, D. (1992). \textit{Reading between Texts: Intertextuality and the Hebrew Bible}. Louisville: Westminster John Knox Press.
     \item Fishbane, M. (1985). \textit{Biblical Interpretation in Ancient Israel}. New York: Oxford Press.
     \item Gomez, J., and Vázquez, P. (2022). An Empirical Evaluation of Document Embeddings and Similarity Metrics for Scientific Articles. \textit{Applied Sciences, 12}(11), 5664. \url{https://doi.org/10.3390/app12115664}
@@ -297,15 +297,15 @@ Each graph contains the distribution of cosine similarity scores for all known p
     \item Miller, G. (2011). Intertextuality in Old Testament Research. \textit{Currents in Biblical Research, 9}, pp. 283–309.
     \item Rainio, O., Tueho, J., and Klén, R. (2024). Evaluation Metrics and Statistical Tests for Machine Learning. \textit{Scientific Reports, 14}, 6086. \url{https://doi.org/10.1038/s41598-024-56706-x}
     \item Schnittjer, G. (2021). \textit{Old Testament Use of the Old Testament}. Grand Rapids: Zondervan.
-    \item Seker, M., Bandel, E., Barekat, D., et al. (2021). AlephBERT: A Hebrew Large Pre-Trained Language Model to Start-off your Hebrew NLP Application With. In \textit{Proceedings of the 2022 Conference on Computational Natural Language Processing}, pp. 321–330. \url{https://doi.org/10.48550/arXiv.2104.04052}
+    \item Seker, M., Bandel, E., Barekat, D., et al., (2021). AlephBERT: A Hebrew Large Pre-Trained Language Model to Start-off your Hebrew NLP Application With. In \textit{Proceedings of the 2022 Conference on Computational Natural Language Processing}, pp. 321–330. \url{https://doi.org/10.48550/arXiv.2104.04052}
     \item Shmidman, A., Koppel, M., and Porat, E. (2018). Identification of Parallel Passages Across a Large Hebrew/Aramaic Corpus. \textit{Journal of Data Mining and Digital Humanities}. \url{https://doi.org/10.46298/jdmdh.1388}
     \item Shmidman, A. (2022). Automatic Identification of Biblical Citations and Allusions in Hebrew Texts. In \textit{Jewish Studies in the Digital Age}, pp. 335-348. \url{https://doi.org/10.1515/9783110744828-015}
     \item Singh, N., and Habash, N. (2012). Hebrew Morphological Preprocessing for Statistical Machine Translation. In \textit{Proceedings of the 16th EAMT Conference}, pp. 43-50.
-    \item Song, K., Tan, X., Qin, T., et al. (2020). MPNet: Masked and Permuted Pre-training for Language Understanding. In \textit{Proceedings of the 34th International Conference on Neural Information Processing Systems}, pp. 16857–16867. \url{https://doi.org/10.48550/arXiv.2004.09297}
+    \item Song, K., Tan, X., Qin, T., et al., (2020). MPNet: Masked and Permuted Pre-training for Language Understanding. In \textit{Proceedings of the 34th International Conference on Neural Information Processing Systems}, pp. 16857–16867. \url{https://doi.org/10.48550/arXiv.2004.09297}
     \item van Peursen, W., and Talstra, E. (2007). Computer-Assisted Analysis of Parallel Texts in the Bible. \textit{Vetus Testamentum, 57}(1), pg. 45–72.
     \item van Peursen, W., Sikkel, C., and Roorda, D. (2015). Hebrew Text Database ETCBC4b. \url{https://doi.org/10.17026/dans-z6y-skyh}
-    \item Vaswani, A., Shazeer, N., Parmar, N., et al. (2017). Attention is All You Need. In \textit{Advances in Neural Information Processing Systems 30} (NIPS 2017), pp. 5998–6008. \url{https://doi.org/10.48550/arXiv.1706.03762}
-    \item Wang, L., Yang, N., Huang, X., et al. (2024). Multilingual E5 Text Embeddings: A Technical Report. \url{https://doi.org/10.48550/arXiv.2402.05672}
+    \item Vaswani, A., Shazeer, N., Parmar, N., et al., (2017). Attention is All You Need. In \textit{Advances in Neural Information Processing Systems 30} (NIPS 2017), pp. 5998–6008. \url{https://doi.org/10.48550/arXiv.1706.03762}
+    \item Wang, L., Yang, N., Huang, X., et al., (2024). Multilingual E5 Text Embeddings: A Technical Report. \url{https://doi.org/10.48550/arXiv.2402.05672}
 \end{itemize}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.26)  30 JUN 2025 13:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.26)  30 JUN 2025 13:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -632,17 +632,21 @@ istogram_LaBSE.png> <./nonpar_par_histogram_MPNet.png>] [11] [12]
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `FINAL_CDIPBH.out' has not changed.
 (rerunfilecheck)             Checksum: 21DC5FE43B6F1E3BC96211754D49A02E;2708.
  ) 
 Here is how much of TeX's memory you used:
  11881 strings out of 474116
  189951 string characters out of 5743682
- 1941187 words of memory out of 5000000
+ 1940187 words of memory out of 5000000
  34030 multiletter control sequences out of 15000+600000
  636063 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1205b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,1104b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/lo
 cal/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texliv
 e/2024/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2024/te
@@ -657,7 +661,7 @@ texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2024/texmf-dist
 e1/public/lm/lmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/l
 m/lmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt12.p
 fb>
-Output written on FINAL_CDIPBH.pdf (12 pages, 821263 bytes).
+Output written on FINAL_CDIPBH.pdf (12 pages, 821432 bytes).
 PDF statistics:
  253 PDF objects out of 1000 (max. 8388607)
  196 compressed objects within 2 object streams
