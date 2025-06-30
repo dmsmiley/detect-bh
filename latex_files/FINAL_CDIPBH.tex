@@ -30,13 +30,13 @@
 \maketitle
 
 \begin{abstract}
-Identifying parallel passages in biblical Hebrew is foundational in biblical scholarship for uncovering intertextual relationships. Traditional methods rely on manual comparison, which is labor-intensive and prone to human error, particularly with the linguistic complexity of a morphologically rich language like biblical Hebrew. This study evaluates the potential of pre-trained transformer-based language models, including E5, AlephBERT, MPNet, and LaBSE, for detecting textual parallels in the Hebrew Bible. Focusing on known parallels between the books of Samuel/Kings and Chronicles, I assessed each model’s capability to generate word embeddings that delineate parallel from non-parallel passages. Utilizing cosine similarity and Wasserstein Distance metrics, I found that E5 and AlephBERT show significant promise, with E5 excelling in parallel detection and AlephBERT demonstrating stronger non-parallel differentiation. These findings indicate that pre-trained models can enhance the efficiency and accuracy of detecting intertextual parallels in ancient texts, suggesting broader applications for ancient language studies. \end{abstract}
+Identifying parallel passages in biblical Hebrew is foundational in biblical scholarship for uncovering intertextual relationships. Traditional methods rely on manual comparison, which is labor-intensive and prone to human error, particularly with the linguistic complexity of a morphologically rich language like biblical Hebrew. This study evaluates the potential of pre-trained transformer-based language models, including E5, AlephBERT, MPNet, and LaBSE, for detecting textual parallels in the Hebrew Bible. Focusing on known parallels between the books of Samuel/Kings and Chronicles, I assessed each model’s capability to generate word embeddings that delineate parallel from non-parallel passages. Utilizing cosine similarity and Wasserstein Distance measures, I found that E5 and AlephBERT show significant promise, with E5 excelling in parallel detection and AlephBERT demonstrating stronger non-parallel differentiation. These findings indicate that pre-trained models can enhance the efficiency and accuracy of detecting intertextual parallels in ancient texts, suggesting broader applications for ancient language studies. \end{abstract}
 
 \section{Introduction}
 \footnote{All code and data can be found in the following Github repository: \url{https://github.com/dmsmiley/detect-bh}}
 The identification of parallel passages in biblical Hebrew (BH) texts has long been a cornerstone of biblical scholarship, serving as a critical tool for understanding intertextual relationships and theological development (Fewell, 1992). Scholars have traditionally relied on manual comparisons to trace these connections (Harvey, 2004; Miller, 2011; Schnittjer, 2021). These parallels are not merely textual repetitions but often involve reinterpretations and recontextualizations that provide profound insights into the evolution of biblical narratives (Fishbane, 1985; Kalimi, 2004).
 
-Traditional methods for detecting these parallels, however, are labor-intensive and susceptible to human error, particularly when the connections are implicit, nuanced, or even subtle. The linguistic complexity of BH, with its rich morphology and intricate verbal structures, exacerbate these challenges (Singh et al., 2012). These difficulties are further magnified when scholars manually attempt to analyze texts spanning extensive chronological, thematic, and theological corpora, which push the limits of one’s attention and lead to an inconsistency in intertextual findings.
+Traditional methods for detecting these parallels, however, are labor-intensive and susceptible to human error, particularly when the connections are implicit, nuanced, or even subtle. The linguistic complexity of BH, with its rich morphology and intricate verbal structures, exacerbates these challenges (Singh et al., 2012). These difficulties are further magnified when scholars manually attempt to analyze texts spanning extensive chronological, thematic, and theological corpora, which push the limits of one’s attention and lead to an inconsistency in intertextual findings.
 
 Recent advances in natural language processing (NLP) present new possibilities for addressing these limitations. Large language models (LLMs), particularly transformer-based architectures, excel at capturing semantic relationships across vast datasets (Devlin et al., 2019). These models process large amounts of text with high accuracy, generating rich word embeddings that reflect nuances of meaning and context in a way that traditional methods cannot.
 
@@ -93,14 +93,14 @@ Omission
  & I will be like a father to him, and he will be like a son to me. [ ] \\
 \bottomrule
 \end{tabularx}
-\caption{These examples are taken from Kalimi’s work (2004) on the rewriting patterns employed by the author of Chr to reshape earlier parallel passages.}
+\caption{Examples from Kalimi's work (2004) on the rewriting patterns employed by the author of Chr to reshape earlier parallel passages.}
 \end{table}
 
-Recent advances, particularly in transformer-based models, offer a solution to problem parallels, like those shown above. Unlike frequency-based methods, transformers can generate embeddings at the verse level based on the relationship of a word in a given context, thus capturing the semantic variation (Vaswani et al., 2017). This ability to contextualize words semantically makes them particularly suited to uncovering parallel passages in BH. However, applying pre-trained models to ancient texts presents challenges, including data scarcity and the gap between modern and ancient languages.
+Recent advances, particularly in transformer-based models, offer a solution to problem parallels, like those shown above. Unlike frequency-based methods, transformers can generate embeddings at the verse level based on the relationship of a word in a given context, thus capturing the semantic variation (Vaswani et al., 2017). This ability to contextualize words semantically makes them particularly suited to uncovering parallel passages in BH.
 
-The limited amount of annotated BH corpora for training hampers any attempts at creating a model that performs accurately. Moreover, while AlephBERT (Seker et al., 2021) has been trained on vast amounts of modern Hebrew (MH), linguistic differences between modern and BH pose significant obstacles. The absence of BH-specific language models further complicates the challenge, as most pre-trained models are not optimized for ancient languages.
+Despite their potential, no systematic evaluation has been conducted to benchmark these modern language models on BH texts. While models like AlephBERT (Seker et al., 2021) have been trained on vast amounts of modern Hebrew (MH), their effectiveness on ancient Hebrew remains untested. The linguistic differences between MH and BH, combined with the absence of BH-specific language models, create a significant gap in our understanding of how well these pre-trained models can handle ancient language tasks.
 
-This study builds on previous computational attempts by leveraging transformer-based models to evaluate known parallels between Sam/Kgs and Chr. Comparing the performance of different pre-trained LLMs by creating embeddings that represent target verses in Chr and their parallels in Sam/Kgs will allow us to advance NLP techniques for the study of ancient texts, addressing the limitations of earlier methods.
+This study addresses this gap by providing the first comprehensive benchmark of transformer-based models for detecting biblical parallels. By leveraging known parallels between Sam/Kgs and Chr, I systematically evaluate how different pre-trained LLMs perform when creating embeddings for BH verses. This benchmark study not only advances NLP techniques for ancient texts but also provides crucial empirical data for scholars seeking to apply these powerful tools to biblical scholarship without needing to develop models from scratch.
 
 \section{Objectives}
 The primary objective of this study is to assess the effectiveness of transformer-based language models in identifying parallel passages within BH texts. Specifically, I will evaluate how well pre-trained models such as E5, AlephBERT, MPNet, and LaBSE can capture the relationships between parallel texts, particularly those found between the books of Sam/Kgs and Chr.
@@ -116,7 +116,7 @@ Five pre-trained transformer models were used, each selected for their strengths
 
 \section{Model Evaluation}
 \subsection{Cosine Similarity}
-Cosine similarity is the preferred metric for evaluating vector proximity in text similarity tasks. It measures the cosine of the angle between two vectors in high-dimensional space. This metric is particularly useful for analyzing embeddings generated by LLMs, as it captures both syntactic and semantic relationships between words (Gomez et al., 2022).
+Cosine similarity is the preferred measure for evaluating vector proximity in text similarity tasks by calculating the cosine of the angle between two vectors in high-dimensional space. This score is particularly useful for analyzing embeddings generated by LLMs, as it captures both syntactic and semantic relationships between words (Gomez et al., 2022).
 
 In the context of BH, parallel passages often display variations in word choice, spelling, and theological interpretation, as shown above (Kalimi, 2004). So a later account is not always a simple “copy and paste” version of its earlier parallel text, which is why frequency-based methods are insufficient to account for finding parallels. By representing each passage as a vector, cosine similarity quantifies the semantics of a text, regardless of superficial additions, omissions, or spelling differences.
 
@@ -157,7 +157,7 @@ MPNet      & 0.903 & 0.649 & $1.61\times10^{-231}$ & 46.76\% & 25.72\% \\
 LaBSE      & 0.828 & 0.375 & $2.48\times10^{-270}$ & 26.07\% & 11.33\% \\
 \bottomrule
 \end{tabularx}
-\caption{Cosine similarity performance metrics, including p-value from t-test of the difference between the mean cosine similarity scores.}
+\caption{Cosine similarity, including p-value from t-test of the difference between the mean cosine similarity scores.}
 \end{table}
 
 E5 consistently outperforms the other models, achieving a high mean cosine similarity of 0.966 for parallel passages, with 75.0\% of passages exceeding a 95\% similarity. However, its high similarity score for non-parallel passages (0.882) suggests an inability to properly delineate between the parallels and non-parallels. AlephBERT, while designed for Hebrew, underperforms relative to E5, with a mean cosine similarity of 0.914 for parallel passages. Only 17.27\% of parallels exceeded 98\% similarity. However, AlephBERT demonstrates stronger separation between parallel and non-parallel passages (mean cosine for non-parallels: 0.638), suggesting that it might be properly fitting better than E5.
@@ -166,7 +166,7 @@ MPNet and LaBSE exhibit the weakest performance with lower mean cosine similarit
 A t-test confirms that the observed differences between mean parallel and non-parallel cosine similarities are significant across all models, with p-values below 1e-100. For instance, E5’s p-value of 1.06e-284 indicates a highly significant distinction between the mean cosine score for parallel and non-parallel texts. So the models are at least able to consistently achieve similarity scores that distinguish parallel and non-parallel passages, despite not being optimized on BH.
 
 \subsection{Distribution-Based Testing for Parallel and Non-Parallel Verses}
-To further assess model performance a distribution-based metric called Wasserstein Distance was employed, which measures the separation between the cosine similarity distributions for parallel and non-parallel passages. A higher Wasserstein Distance indicates greater separation and a stronger proclivity to distinguish between parallel and non-parallel verses (Leo et al. 2023). 
+To further assess model performance a distribution-based metric called the Wasserstein Distance was employed, which measures the separation between the cosine similarity distributions for parallel and non-parallel passages. A higher Wasserstein Distance indicates greater separation and a stronger proclivity to distinguish between parallel and non-parallel verses (Leo et al. 2023). 
 \begin{table}[htbp]
 \centering
 \label{tab:wasserstein}
@@ -183,14 +183,14 @@ LaBSE      & 0.4532 \\
 \caption{Wasserstein Distance scores for each model.}
 \end{table}
 
-E5 exhibits a relatively low Wasserstein Distance (0.0812), suggesting that the distributions of cosine similarities for parallel and non-parallel passages overlap. This supports the earlier observation, where non-parallel passages receive high similarity scores, blurring the distinction between related and unrelated texts.
+The results reveal important insights about model characteristics. E5 exhibits the lowest Wasserstein Distance (0.0812), indicating significant overlap between the cosine similarity distributions for parallel and non-parallel passages. This confirms E5's tendency to assign high similarity scores for true parallels broadly; however, it does so at the expense of assigning high cosine similarity scores to false positives quite consistently, as reflected in this limited distribution separation.
 
 In contrast, AlephBERT shows a larger Wasserstein Distance (0.2764), indicating better separation between parallel and non-parallel passages. While AlephBERT’s overall cosine similarity for parallel passages is lower than E5’s, its greater separation suggests that it is less prone to false positives.
 
-MPNet and LaBSE also exhibit larger Wasserstein Distances, reflecting better distinction between parallel and non-parallel passages. However, their lower overall performance in mean cosine similarity limits their effectiveness for detecting true parallels. MPNet has a slightly worse, but similar performance to AlephBERT on both metrics.
+MPNet and LaBSE also exhibit larger Wasserstein Distances (0.25 and 0.45, respectively), reflecting better distinction between parallel and non-parallel passages. However, their lower overall performance in mean cosine similarity limits their effectiveness for detecting true parallels. MPNet has a slightly worse, but similar performance to AlephBERT on both measures. While LaBSE has the largest Wasserstein Distance, as the next section will confirm, it may be too conservative in identifying parallels, potentially missing subtle intertextual connections.
 
 \subsection{Evaluating False Positives with Classification Metrics}
-Cosine similarity was also used to find the closest match for each passage, helping to identify which specific text was most similar to our parallel text in Chr. This method evaluates whether the models are finding true parallels or capturing incorrect matches. To further assess model performance, classification reports were created, focusing on precision, recall, and F1-score. The micro average metrics (Rainio et al., 2024) gave a clear picture of how well each model distinguished between true parallels and unrelated passages based on finding the closing cosine similarity score for each verse in Chr.
+Cosine similarity was also used to find the closest match for each passage, helping to identify which specific text was most similar to our parallel text in Chr. This nearest-neighbor approach evaluates whether the models are finding true parallels or capturing incorrect matches. To further assess model performance, classification reports were created, focusing on precision, recall, and F1-score. The micro average metrics (Rainio et al., 2024) gave a clear picture of how well each model distinguished between true parallels and unrelated passages based on finding the closest cosine similarity match for each verse in Chr.
 
 \begin{table}[htbp]
 \centering
@@ -199,10 +199,10 @@ Cosine similarity was also used to find the closest match for each passage, help
 \toprule
 \textbf{Model} & \textbf{Recall} & \textbf{Precision} & \textbf{F1-Score} \\ 
 \midrule
-E5         & 0.92 & 0.85 & 0.88 \\
-AlephBERT  & 0.92 & 0.82 & 0.87 \\
-MPNet      & 0.90 & 0.68 & 0.78 \\
-LaBSE      & 0.86 & 0.72 & 0.78 \\
+E5         & 0.85 & 0.92 & 0.88 \\
+AlephBERT  & 0.82 & 0.92 & 0.87 \\
+MPNet      & 0.68 & 0.90 & 0.78 \\
+LaBSE      & 0.72 & 0.86 & 0.78 \\
 \bottomrule
 \end{tabular}
 \caption{Classification report of the closest parallel passage according to cosine similarity.}
@@ -213,24 +213,25 @@ E5 achieved a micro average precision of 0.92 and a recall of 0.85, indicating t
 AlephBERT demonstrated similar performance, with a micro average precision of 0.92 and a recall of 0.82, resulting in an F1-score of 0.87. The metrics for AlephBERT are close to those of E5, suggesting that both models perform similarly in identifying true parallels and avoiding false positives.
 
 MPNet and LaBSE showed lower effectiveness overall. They performed well with F1-scores of 0.78, but still fell short of the performance levels seen with E5 and AlephBERT.
+
 These classification metrics complement cosine similarity and Wasserstein Distance analyses by providing insights into the balance between precision and recall for each model. E5 and AlephBERT both effectively detect parallels, with similar precision and recall metrics, indicating comparable performance. MPNet and LaBSE demonstrate limited reliability, suggesting a combined approach using E5 and AlephBERT may yield the best results for identifying intertextual parallels in BH texts.
 
 \subsection{Model Conclusions}
 Based on the evaluation of pre-trained models, E5 and AlephBERT stand out as the most effective models for detecting true parallel passages in BH texts. E5 excels at detecting explicit parallels, achieving high mean cosine similarity for known passages. However, its performance also reveals a tendency to catch false positives, with high similarity scores for non-parallel texts, as reflected in its relatively low Wasserstein Distance. This makes E5 highly capable of identifying parallels but a bit less effective in distinguishing true from false positives.
 
-AlephBERT, while slightly behind E5 in mean cosine similarity, shows a slight edge in avoiding false positives. Its lower similarity for non-parallel texts and higher Wasserstein Distance indicate better separation between related and unrelated passages. This makes AlephBERT particularly suitable when minimizing incorrect matches is a priority, providing a complementary strength to E5.
+AlephBERT, while slightly behind E5 in mean cosine similarity for parallel passages, shows a slight edge in avoiding false positives. Its lower similarity for non-parallel texts and higher Wasserstein Distance indicate better separation between related and unrelated passages. This makes AlephBERT particularly suitable when minimizing incorrect matches is a priority, providing a complementary strength to E5.
 
 MPNet, and LaBSE showed weaker performance in identifying true parallels, largely due to their lower optimization for BH. These models exhibited lower cosine similarities and greater difficulty in distinguishing parallel from non-parallel texts. Despite their strengths, they should be avoided in their current forms as it relates to creating word embeddings for BH.
 
 These findings suggest that using both the E5 and AlephBERT models as a check and balance of one another offers a promising solution for enhancing parallel detection accuracy. Future work should focus on fine-tuning these pre-trained models for BH to maximize their complementary strengths, potentially revolutionizing the identification of intertextual parallels, not only in BH, but also in other ancient texts. This approach enables scholars to utilize advanced NLP tools without the need to develop new models from scratch, instead focusing on optimizing and adapting existing models for specific historical and linguistic contexts.
 
 \section{Implications for Future Studies}
-This study demonstrates the capability of pre-trained transformer-based models to identify parallel verses in BH using document similarity metrics such as cosine similarity and Wasserstein Distance. E5 and AlephBERT show significant promise in detecting these passages despite differences in lexical choice or sentence structure. Although not perfect, by adapting these models and fine-tuning them later I can bypass the issues of attempting to build our own BH language model from scratch.
+This study demonstrates the capability of pre-trained transformer-based models to identify parallel verses in BH using document similarity measures such as cosine similarity and Wasserstein Distance. E5 and AlephBERT show significant promise in detecting these passages despite differences in lexical choice or sentence structure. Although not perfect, by adapting these models and fine-tuning them later I can bypass the issues of attempting to build our own BH language model from scratch.
 
 Expanding this research to other ancient languages, such as Syriac, Greek, or Latin, could provide further insights into intertextuality in other areas of ancient language study. If these models generalize well with BH, then in theory they could also work well in other languages on which they are not explicitly trained.  Developing embeddings from pre-trained models for ancient texts could transform the study of literary connections in the ancient world, offering new tools for scholars in the digital humanities.
 
 \section{Limitations}
-While this study demonstrates the promise of pre-trained transformer-based models for detecting biblical parallels, several limitations should be acknowledged. First, this evaluation focuses exclusively on narrative texts, specifically the known parallels between Sam/Kgs and Chr. The HB encompasses numerous, variegated genre, like poetry, wisdom literature, prophetic oracles, and legal codes, each with their own ways of displaying intertextual connections. The performance of these models on something like poetic parallelism in the Psalter, the covenant code in Exodus, or prophetic sayings of Jeremiah remains untested, thus limiting the generalizability of our findings across the full spectrum of biblical literature.
+While this study demonstrates the promise of pre-trained transformer-based models for detecting biblical parallels, several limitations should be acknowledged. First, this evaluation focuses exclusively on narrative texts, specifically the known parallels between Sam/Kgs and Chr. The HB encompasses numerous, variegated genres, like poetry, wisdom literature, prophetic oracles, and legal codes, each with their own ways of displaying intertextual connections. The performance of these models on something like poetic parallelism in the Psalter, the covenant code in Exodus, or prophetic sayings of Jeremiah remains untested, thus limiting the generalizability of our findings across the full spectrum of biblical literature.
 
 Second, the embeddings generated by these pre-trained models, while effective for similarity detection, remain largely opaque and uninterpretable. This "black box" nature of all language models built on the transformer architecture prevents scholars from understanding why certain passages are deemed similar, potentially obscuring important linguistic or theological nuances that traditional philological methods would capture. This limitation is particularly significant for biblical studies, where understanding the specific mechanisms of textual reuse is often as important as identifying the parallels themselves.
 
