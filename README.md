@@ -1,4 +1,5 @@
-# Computational Detection of Intertextual Parallels in Biblical Hebrew
+# Intertextual Parallel Detection in Biblical Hebrew: 
+## A Transformer-Based Benchmark
 
 A benchmark study evaluating transformer-based language models for detecting parallel passages in the Hebrew Bible, focusing on textual relationships between Chronicles and Samuel/Kings.
 
